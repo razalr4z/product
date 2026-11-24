@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>
+    <link rel="stylesheet" href="/css/update.css">
+</head>
+<body>
+
+    <div class="update-container">
+
+        <div class="form-header">
+            <div class="icon">✏️</div>
+            <h1>Update Product</h1>
+            <p>Modify your product details below</p>
+        </div>
+
+        <form method="post"
+              action="/products/edit/{{data._id}}"
+              enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text"
+                       name="productName"
+                       value="{{data.productName}}"
+                       placeholder="Enter product name"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Product Price (₹)</label>
+                <input type="number"
+                       name="productPrice"
+                       value="{{data.productPrice}}"
+                       placeholder="Enter product price"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Current Product Image</label>
+
+                <div class="image-preview">
+                    <img src="{{data.product_image}}"
+                         alt="{{data.productName}}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Choose New Image</label>
+                <input type="file" name="image" accept="image/*">
+                <small>Leave empty to keep the current image.</small>
+            </div>
+
+            <button type="submit" class="update-btn">
+                ✏️ Update Product
+            </button>
+
+            <a href="/products/home" class="cancel-btn">
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

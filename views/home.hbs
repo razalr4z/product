@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>Our Products</h1>
+
+        <a href="/products/product" class="add-btn">
+            + Add Product
+        </a>
+    </nav>
+
+    <div class="product-container">
+        {{#each products}}
+        <div class="product-card">
+
+            <div class="product-icon"></div>
+
+            <img src="{{this.product_image}}" alt="{{this.productName}}">
+
+            <h2>{{this.productName}}</h2>
+
+            <p class="price">₹{{this.productPrice}}</p>
+
+            <a href="/products/{{_id}}">
+                <button type="button">View Product</button>
+            </a>
+
+        </div>
+        {{/each}}
+    </div>
+
+    <a href="/user/logout">
+        <button type="button">LOGOUT</button>
+    </a>
+
+</body>
+</html>
